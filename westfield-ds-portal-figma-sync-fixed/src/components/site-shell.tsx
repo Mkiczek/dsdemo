@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { componentsCatalog } from "@/lib/catalog";
+
 
 const nav = [
   { group: "Start", items: [
@@ -14,8 +16,14 @@ const nav = [
     { href: "/brand/tokens", label: "Tokens" },
   ]},
   { group: "Components", items: [
-    { href: "/components", label: "Directory" },
-  ]},
+  ...componentsCatalog
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((c) => ({
+      href: `/components/${c.slug}`,
+      label: c.name,
+    })),
+]},
   { group: "Figma", items: [
     { href: "/figma/inventory", label: "Inventory" },
   ]},
