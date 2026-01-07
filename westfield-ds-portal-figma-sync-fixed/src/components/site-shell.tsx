@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { componentsCatalog } from "@/lib/catalog";
+import { ChatWidget } from "@/components/chat-widget";
 
 
 const nav = [
@@ -26,9 +27,6 @@ const nav = [
 ]},
   { group: "Figma", items: [
     { href: "/figma/inventory", label: "Inventory" },
-  ]},
-  { group: "AI", items: [
-    { href: "/ask", label: "Ask AI" },
   ]},
 ];
 
@@ -73,3 +71,16 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+
+export function SiteShell({ children }: { children: React.ReactNode }) {
+  // ...existing code
+  return (
+    <div className="shell">
+      <aside className="sidebar">{/* nav */}</aside>
+      <main className="main">{children}</main>
+
+      <ChatWidget />
+    </div>
+  );
+}
+
