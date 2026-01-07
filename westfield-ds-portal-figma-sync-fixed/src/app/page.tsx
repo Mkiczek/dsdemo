@@ -22,7 +22,7 @@ export default function HomePage() {
           <Link className="navLink" href="/brand/colors">Brand → Colors</Link>
           <Link className="navLink" href="/brand/tokens">Brand → Tokens</Link>
           <Link className="navLink" href="/components">Components Directory</Link>
-          <Link className="navLink" href="/ask">Ask AI (Demo)</Link>
+          
         </div>
       </div>
 
